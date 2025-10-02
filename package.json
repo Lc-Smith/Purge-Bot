@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "discord.js": "^14.9.0",
+    "dotenv": "^17.2.3",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.18.3",
+    "sequelize": "^6.33.0"
+  }
+}
