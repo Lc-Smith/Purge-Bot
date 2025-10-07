@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder, InteractionResponseFlags } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, MessageFlags } = require('discord.js');
 const War = require('../models/War');
 const WarAttendee = require('../models/WarAttendee');
 const { isStaff } = require('../utils/isStaff');
@@ -10,13 +10,13 @@ module.exports = {
 
     async execute(interaction) {
         if (!isStaff(interaction.member)) {
-            return interaction.reply({ content: "❌ You do not have permission.", flags: InteractionResponseFlags.Ephemeral });
+            return interaction.reply({ content: "❌ You do not have permission.", flags: [MessageFlags.Ephemeral] });
         }
 
         // Find the currently active war (no endTime)
         const war = await War.findOne({ endTime: null });
         if (!war) {
-            return interaction.reply({ content: "⚠️ No active war.", flags: InteractionResponseFlags.Ephemeral });
+            return interaction.reply({ content: "⚠️ No active war.", flags: [MessageFlags.Ephemeral] });
         }
 
         // Find attendees for this war

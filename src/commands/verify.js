@@ -1,8 +1,7 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, MessageFlags } = require('discord.js');
 require('dotenv').config();
 
-const { memberRole, verifiedRole, removeRole, recruiterRoles, InteractionResponseFlags } = process.env;
-const allowedRoles = recruiterRoles.split(','); // Convert env list to array
+const { memberRole, verifiedRole, removeRole } = process.env;
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -30,7 +29,7 @@ module.exports = {
         if (!isRecruiter(executor)) {
             return await interaction.reply({
                 content: '❌ You do not have permission to run this command. If this is in error, contact Bagheera.',
-                flags: InteractionResponseFlags.Ephemeral
+                flags: [MessageFlags.Ephemeral]
             });
         }
 
@@ -43,13 +42,13 @@ module.exports = {
             await user.roles.add(memberRole);
             await interaction.reply({
                 content: `✅ Successfully verified <@${user.id}> as Member.`,
-                flags: InteractionResponseFlags.Ephemeral
+                flags: [MessageFlags.Ephemeral]
             });
         } else {
             // Ally selected — manual assignment required
             await interaction.reply({
                 content: `✅ Successfully verified <@${user.id}>.\n⚠️ Please add the required Ally role manually.`,
-                flags: InteractionResponseFlags.Ephemeral
+                flags: [MessageFlags.Ephemeral]
             });
         }
     },

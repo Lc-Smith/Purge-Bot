@@ -4,7 +4,7 @@ const {
     ButtonBuilder, 
     ButtonStyle, 
     Events,
-    InteractionResponseFlags 
+    MessageFlags 
 } = require('discord.js');
 const War = require('../models/War');
 const Attendee = require('../models/Attendee');
@@ -119,7 +119,7 @@ function setupWarSystem(client) {
             if (interaction.channelId !== warChannelId) {
                 return interaction.reply({
                     content: "❌ This war is not in this channel.",
-                    flags: InteractionResponseFlags.Ephemeral
+                    flags: [MessageFlags.Ephemeral]
                 });
             }
 
@@ -155,7 +155,7 @@ function setupWarSystem(client) {
 
             await interaction.reply({
                 content: "✅ You are marked as attending.",
-                flags: InteractionResponseFlags.Ephemeral
+                flags: [MessageFlags.Ephemeral]
             });
 
         } catch (err) {

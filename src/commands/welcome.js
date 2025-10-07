@@ -1,8 +1,7 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, MessageFlags } = require('discord.js');
 require('dotenv').config();
 
-const { mainChannel, recruiterRoles, InteractionResponseFlags } = process.env;
-const allowedRoles = recruiterRoles.split(','); // Convert env list to array
+const { mainChannel } = process.env;
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -21,7 +20,7 @@ module.exports = {
         if (!isRecruiter(executor)) {
             return await interaction.reply({
                 content: '❌ You do not have permission to run this command. If this is in error, contact Bagheera.',
-                flags: InteractionResponseFlags.Ephemeral
+                flags: [MessageFlags.Ephemeral]
             });
         } 
 
@@ -43,7 +42,7 @@ module.exports = {
         // Confirmation reply
         await interaction.reply({
             content: `✅ Successfully welcomed <@${user.id}>`,
-            flags: InteractionResponseFlags.Ephemeral
+            flags: [MessageFlags.Ephemeral]
         });
     },
 };
