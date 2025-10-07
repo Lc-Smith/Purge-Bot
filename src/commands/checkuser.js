@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, InteractionResponseFlags } = require('discord.js');
 const Attendee = require('../models/Attendee');
 const WarAttendee = require('../models/WarAttendee');
 const { isStaff } = require('../utils/isStaff');

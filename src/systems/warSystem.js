@@ -3,7 +3,8 @@ const {
     ActionRowBuilder, 
     ButtonBuilder, 
     ButtonStyle, 
-    Events 
+    Events,
+    InteractionResponseFlags 
 } = require('discord.js');
 const War = require('../models/War');
 const Attendee = require('../models/Attendee');

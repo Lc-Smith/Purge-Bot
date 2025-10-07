@@ -30,6 +30,6 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: 'Bagheera', iconURL: 'https://i.imgur.com/ANiuaqS.png' });
 
-        await interaction.reply({ embeds: [helpEmbed], ephemeral: false });
+        await interaction.reply({ embeds: [helpEmbed] });
     },
 };
