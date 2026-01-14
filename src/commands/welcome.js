@@ -29,7 +29,7 @@ module.exports = {
 
         // Send welcome message
         await channel.send(
-            `## Welcome to Purge <@${user.id}>! :PurgeClan:\n` +
+            `## Welcome to Purge <@${user.id}>! <:PurgeClan:1423314986268229632>\n` +
             `- Please read our <#832415362199846922>\n` +
             `- Collect your <#1040129914810142843>\n` +
             `- Enter your user/clan logging in <#841431029255503902> & <#1129177911866429683>\n` +
